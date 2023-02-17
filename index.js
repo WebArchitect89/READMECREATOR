@@ -11,31 +11,55 @@ const questions = [
       .prompt([
         {
           type: 'input',
-          message: 'What is your name?',
-          name: 'usersName',
+          message: 'What is the project title?',
+          name: 'projectTitle',
         },
         {
-            type: 'input',
-            message: 'What languages do you know?',
-            name: 'userLanguages',
-          },
-          {
-            type: 'input',
-            message: '“What is your preferred method of communication',
-            name: 'userMethod',
-          },
+          type: 'input',
+          message: 'Please enter the description',
+          name: 'description',
+        },
+        {
+          type: 'input',
+          message: 'Describe the installation process?',
+          name: 'installation',
+        },
+        {
+          type: 'input',
+          message: 'Please describe the usage',
+          name: 'usage',
+        },
+        {
+          type: 'input',
+          message: 'Can anyone contribute?',
+          name: 'contribution',
+        },
+        {
+          type: 'input',
+          message: 'Are there any tests',
+          name: 'tests',
+        },
+
       ])
       .then((response) => {
 
-        console.log(response.usersName)
+        // console.log(response.projectTitle)
   
-        const usersInfo = `User's name: ${response.usersName}
-  User's Lanuages: ${response.userLanguages}
-  User's Method: ${response.userMethod}`;
+        const readmeInfo = `
+  ${response.projectTitle}
+  ${response.description}
+  ${response.installation}
+  ${response.usage}
+  ${response.contribution}
+  ${response.tests}
+ 
   
   
-        fs.writeFile('response.md', usersInfo, (err) =>
-            err ? console.error(err) : console.log('User\'s info logged!')
+  `;
+  
+  
+        fs.writeFile('response.md', readmeInfo, (err) =>
+            err ? console.error(err) : console.log('README Completed!')
         )
     })
 
