@@ -48,7 +48,7 @@ function renderLicenseSection(license){
 
 //License table of contents
 
-function renderLicenseTOC(license){
+function renderLicenseTableOfContents(license){
   if(license!=="no license"){
     return`
     *[License](#license)
@@ -58,6 +58,45 @@ function renderLicenseTOC(license){
   }
 }
 
+// Generate markdown for README
 
+function generateMarkdown(data){
+return`
+# ${data.title}
+
+${renderLicenseBadge(data.license)}
+
+## Table of Contents
+*[Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+${renderLicenseTableOfContents(data.license)}
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+
+## [Description](#table-of-contents)
+${data.what}
+${data.why}
+${data.how}
+## [Installation](#table-of-contents)
+${data.installation}
+## [Usage](#table-of-contents)
+${data.usage}
+${renderLicenseSection(data.license)}
+
+## [Contributing](#table-of-contents)
+${contributingReply(data.confirmContributers, data.contribute)}
+
+## [Tests](#table-of-contents)
+${data.test}
+
+## [Questions](#table-of-contents)
+Please get in touch with me if you have any questions:
+[GitHub](https://github.com/${data.githubUsername})
+[Email: ${data.email}](mailto:${data.email})
+
+`
+}
 
 module.exports = generateMarkdown;
