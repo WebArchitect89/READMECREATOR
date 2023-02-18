@@ -46,5 +46,18 @@ function renderLicenseSection(license){
   }
 }
 
+//License table of contents
+
+function renderLicenseTOC(license){
+  if(license!=="no license"){
+    return`
+    *[License](#license)
+    `;
+  } else{
+    return``;
+  }
+}
+
+
 
 module.exports = generateMarkdown;
