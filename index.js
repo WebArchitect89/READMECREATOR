@@ -81,7 +81,7 @@ const questions = [
 
 const writeFile = fileContent=>{
     return new Promise((resolve,reject)=>{
-        fs.writeFile("generatedREADME",fileContent,err=>{
+        fs.writeFile("README.md",fileContent,err=>{
             if(err){
                 reject(err);
                 return;
