@@ -89,7 +89,19 @@ const writeFile = fileContent=>{
             resolve({
                 ok:true,
                 message:"README Generated"
-            })
-        })
+            });
+        });
+    });
+};
+
+// Prompt questions ans save the user answers.
+
+const init = ()=>{
+    return inquirer.prompt(questions)
+
+    .then(readmeData =>{
+        return readmeData;
     })
 }
+
+
