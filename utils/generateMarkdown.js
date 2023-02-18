@@ -20,6 +20,31 @@ if(license !== "no license"){
 }
 }
 
+// License link
+
+function renderLicenseLink(license){
+  if(license!=="no license"){
+    return `
+    [${license}](https://choosealicense.com/licenses/${license})
+      `;
+    } else {
+      return ' ';
+    }
+  }
+
+//license section of README
+
+function renderLicenseSection(license){
+  if(license!=="no license"){
+    return`
+  ## [License](#table-of-contents)
+  The application is covered under the following license:
+  ${renderLicenseLink(license)}
+    `;
+  } else{
+    return``;
+  }
+}
 
 
 module.exports = generateMarkdown;
