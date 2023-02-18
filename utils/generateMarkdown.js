@@ -10,7 +10,15 @@ function contributingReply(confirmContributers) {
 
 }
 
-
+//A license badge based on which license is chosen
+function renderLicenseBadge(license){
+if(license !== "no license"){
+  return `  ![badge](https://img.shields.io/badge/license-${license}-red)
+  `;
+} else {
+  return "No license"
+}
+}
 
 
 
