@@ -1,94 +1,95 @@
-const fs = require("fs");
-const path = require('path');
-const inquirer = require("inquirer");
+// Packages needed for this application
+const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-
-
-// array of questions for user
+const fs = require('fs');
+const { resolve } = require('path');
+const { rejects } = require('assert');
+// Array of questions for user input
 const questions = [
-
-
-  inquirer
-    .prompt([
-      {
+    {
         type: 'input',
-        message: 'What is the project title? (Required)',
         name: 'title',
-      },
-      {
+        message: 'What is the title of your project?',
+     
+    },
+    {
         type: 'input',
-        message: 'Please enter the description',
-        name: 'description',
-      },
-      {
+        name: 'githubUsername',
+        message: 'What is your GitHub Username?',
+   
+    },
+    {
         type: 'input',
-        message: 'Describe the installation process?',
+        name: 'email',
+        message: 'What is your email address? ',
+
+    },
+    {
+        type: 'input',
+        name: 'what',
+        message: 'What is your project and what problem will it solve?',
+
+    },
+    {
+        type: 'input',
+        name: 'why',
+        message: 'Why did you create this project?',
+    },
+    {
+        type: 'input',
+        name: 'how',
+        message: 'How will someone use this? ',
+
+    },
+    {
+        type: 'input',
         name: 'installation',
-      },
-      {
+        message: 'Please provide step-by-step installation instructions for your project.',
+
+    },
+    {
         type: 'input',
-        message: 'Please describe the usage',
         name: 'usage',
-      },
-      {
-        type: 'input',
-        message: 'Can anyone contribute, if yes what are the guidelines?',
-        name: 'contribution',
-      },
-      {
-        type: 'input',
-        message: 'Are there any tests required?',
-        name: 'tests',
-      },
-      {
+        message: 'Please provide instructions and examples for use.',
+
+    },
+    {
         type: 'list',
-        message: 'What license does your repo is using?',
         name: 'license',
-        choices: ["agpl", "MIT", "apache", "none"]
-      },
-      {
+        message: 'Which license will you use for your project?',
+        choices: ['agpl', 'apache', 'mit', 'no license']
+    },
+    {
+        type: 'confirm',
+        name: 'confirmContributers',
+        message: 'Would you like to allow other developers to contribute?',
+    },
+    {
         type: 'input',
-        message: 'What is your github user name?',
-        name: 'gitUserName',
-      },
-      {
-        type: 'input',
-        message: 'What is your email address?',
-        name: 'emailAddress',
-      },
-
-    ])
-    .then((response) => {
-
-      // console.log(response.projectTitle)
-
-      const readmeInfo = `
-  ${response.projectTitle}
-  ${response.description}
-  ${response.installation}
-  ${response.usage}
-  ${response.contribution}
-  ${response.tests}
- 
-  
-  
-  `;
-//Function to store the response in the response.md file
-
-      fs.writeFile('response.md', readmeInfo, (err) =>
-        err ? console.error(err) : console.log('README Completed!')
-      )
-    })
+        name: 'test',
+        message: 'Please provide instructions on how to test the app.',
+    
+    },
 
 ];
 
 
 
 
-// // function to initialize program
-// function init() {
 
-// }
+//Function to write a README file
 
-// // function call to initialize program
-// init();
+const writeFile = fileContent=>{
+    return new Promise((resolve,reject)=>{
+        fs.writeFile("generatedREADME",fileContent,err=>{
+            if(err){
+                reject(err);
+                return;
+            }
+            resolve({
+                ok:true,
+                message:"README Generated"
+            })
+        })
+    })
+}
