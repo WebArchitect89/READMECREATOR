@@ -104,4 +104,19 @@ const init = ()=>{
     })
 }
 
+//Initialize the app
+init()
+.then(readmeData=>{
+    console.log(readmeData);
+    return generateMarkdown(readmeData);
+})
+.then(fileMD=>{
+    return writeFile(fileMD);
+})
+.then(writeFileResponse =>{
+    console.log(writeFileResponse.message);
+})
 
+.catch(err=>{
+    console.log(err)
+})
