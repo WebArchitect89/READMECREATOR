@@ -39,7 +39,7 @@ function renderLicenseSection(license){
     return`
   ## [License](#table-of-contents)
   The application is covered under the following license:
-  ${renderLicenseLink(license)}
+  * ${renderLicenseLink(license)}
     `;
   } else{
     return``;
@@ -67,10 +67,10 @@ return`
 ${renderLicenseBadge(data.license)}
 
 ## Table of Contents
-*[Description](#description)
+* [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-${renderLicenseTableOfContents(data.license)}
+*  ${renderLicenseTableOfContents(data.license)}
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [Questions](#questions)
@@ -83,6 +83,7 @@ ${data.how}
 ${data.installation}
 ## [Usage](#table-of-contents)
 ${data.usage}
+
 ${renderLicenseSection(data.license)}
 
 ## [Contributing](#table-of-contents)
@@ -94,6 +95,7 @@ ${data.test}
 ## [Questions](#table-of-contents)
 Please get in touch with me if you have any questions:
 [GitHub](https://github.com/${data.githubUsername})
+
 [Email: ${data.email}](mailto:${data.email})
 
 `

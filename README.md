@@ -5,10 +5,10 @@
   
 
 ## Table of Contents
-*[Description](#description)
+* [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-
+*  
     *[License](#license)
     
 * [Contributing](#contributing)
@@ -22,11 +22,12 @@ Download it from my Git Repository.
 ## [Installation](#table-of-contents)
 1.Open the terminal. 2.Type in node index.js. 3.Reply to all the questions. 4.Answers will be registered in the README.
 ## [Usage](#table-of-contents)
+N/A
 
 
   ## [License](#table-of-contents)
   The application is covered under the following license:
-  
+  * 
     [mit](https://choosealicense.com/licenses/mit)
       
     
@@ -35,10 +36,15 @@ Download it from my Git Repository.
 Thank you for your interest in helping out. Feel free to add your contributions.
 
 ## [Tests](#table-of-contents)
-NPM Install
+To run tests, run the following command:
+
+```
+npm test
+```
 
 ## [Questions](#table-of-contents)
 Please get in touch with me if you have any questions:
 [GitHub](https://github.com/WebArchitect89)
+
 [Email: iglunov89@gmail.com](mailto:iglunov89@gmail.com)
 
